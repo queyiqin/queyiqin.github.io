@@ -238,6 +238,1117 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/06/跟我一起学-Python-五/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="阙弋钦">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="QYQ">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/06/跟我一起学-Python-五/" itemprop="url">跟我一起学 Python (五)</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-06T21:53:14+08:00">
+                2017-11-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>错误、调试和测试</p>
+<p>IO 编程</p>
+</blockquote>
+<p><strong>一.错误处理</strong></p>
+<ul>
+<li><code>try except finally</code></li>
+</ul>
+<p><strong>注意:</strong>所有子类都继承 <code>BaseException</code> 会把所有子类一网打尽,捕获不到子类异常信息。</p>
+<pre><code>try：
+    print(&apos;try...&apos;)
+    r =10/int(&apos;a&apos;)
+    print(&apos;result:&apos;,r)
+except ValueError as e:
+    print(&apos;ZeroDivisionError:&apos;,e)
+else:
+    print(&apos;no error!&apos;) #没有错误
+finally:
+    print(&apos;finally...&apos;)
+print(&apos;END&apos;)
+</code></pre><ul>
+<li><p>使用 <code>logging</code>模块记录错误</p>
+<pre><code>import logging
+def foo(s):
+    return 10/int(s)
+def bar(s):
+    return foo(s)*2
+def main():
+    try:
+        bar(&apos;0&apos;)
+    except Exception as e:
+        logging.excepiton(e)
+main()
+print(&apos;66666&apos;)
+</code></pre><p>打印完错误信息继续执行！</p>
+</li>
+<li><p>抛出错误 <code>raise</code> 关键字</p>
+<pre><code>自定义错误:
+class FooError(ValueError):
+    pass
+def foo(s):
+    n = int (s)    
+    if n == 0:
+         raise FooError(&apos;invalid value: %s&apos; % s )
+    return 10/n
+foo(&apos;0&apos;)
+</code></pre></li>
+</ul>
+<p><strong>二.调试</strong></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/31/跟我一起学-Python-四/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="阙弋钦">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="QYQ">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/10/31/跟我一起学-Python-四/" itemprop="url">跟我一起学 Python (四)</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-31T11:27:42+08:00">
+                2017-10-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>面向对象编程</p>
+<p>面向对象高级编程</p>
+</blockquote>
+<p><strong>一.类和实例</strong></p>
+<ul>
+<li><p>通过 class 关键字定义</p>
+<pre><code>clas Student():
+    pass
+
+s =Student()
+</code></pre></li>
+<li><p>绑定属性： <code>s.name</code></p>
+</li>
+<li><p>前后两个下划线的为特殊方法</p>
+<pre><code>class Student(Object):
+    def __init__(self,name,score):  # 固定参数 self
+        self.name = name
+        self.score = score
+</code></pre></li>
+</ul>
+<p><strong>二.访问限制</strong></p>
+<p>在 Python 中 class 中变量名以两个下划线开头的为 private 私有变量。</p>
+<pre><code>class Studnet(Object):
+    def __init__(self,name,score):
+        self.__name = name 
+        self.__score = score
+</code></pre><p>无法通过实例对象直接访问,<strong>注意是仍然可以访问</strong></p>
+<pre><code>s = Student()
+s._Student__name #不建议这样访问
+</code></pre><p><strong>三.继承和多态</strong></p>
+<ul>
+<li>继承</li>
+</ul>
+<p>如：</p>
+<pre><code>  class Animal():
+      pass
+class Dog(Animal): # 继承Animal
+      pass
+</code></pre><p>判断是否属于某种类型可以使用 <code>isinstance()</code></p>
+<pre><code>a = Animal()
+isinstance(a,Dag)
+Flase  显然不是 Gog
+</code></pre><ul>
+<li>多态</li>
+</ul>
+<p>有这样个方法：</p>
+<pre><code>run_twice(animal):
+      print(&apos;我是动物...&apos;)
+</code></pre><p>现在可以传入 Dog 运行该方法,只要是 Animal 的子类都可以调用 run_twice()</p>
+<p><strong>四.获取对象信息</strong></p>
+<ul>
+<li>使用 <strong>type()</strong> 判断对象类型</li>
+</ul>
+<pre><code>   type(123)
+class &apos;int&apos; 为 int 类型
+</code></pre><ul>
+<li>isinstance()</li>
+</ul>
+<pre><code>a = Animal()
+isinstance(a,Animal) True
+</code></pre><ul>
+<li>使用 <code>dir</code></li>
+</ul>
+<pre><code>dir(&apos;abc&apos;)
+</code></pre><p>可以获得一个对象的所有的属性和方法。</p>
+<p><strong>五.类属性和实例属性</strong></p>
+<ul>
+<li><p>类属性</p>
+<pre><code>class Student(object):
+    name =&apos;Student&apos;
+</code></pre></li>
+<li><p>实例属性</p>
+<pre><code>class Student(object):
+    def __init__(self,name):
+        self.name =name
+s = Student(&apos;ztz&apos;)
+</code></pre></li>
+</ul>
+<p><strong>六.<strong>slots </strong></strong></p>
+<p><strong>slots</strong> 用来限制实例动态添加属性</p>
+<pre><code>class Student(object):
+    __slots__=(&apos;name&apos;,&apos;score&apos;)
+</code></pre><p>除了可以绑定 <code>name score</code> 两个属性之外其他则无法绑定！<strong>注意</strong><br>仅对当前类有效,子类无限制。</p>
+<p><strong>七.使用 @property</strong></p>
+<pre><code>class Student(object):
+   @property
+   def name(self):
+       return self._name
+   @name.setter
+   def name(self,value):
+       self._name=value
+</code></pre><p><strong>八.多重继承</strong></p>
+<ul>
+<li><p>Mixin</p>
+<pre><code>class Dog(Mamal,RunnableMixinM):
+    pass
+同时继承两个或者多个,这种设计通常称之为 Mixin
+</code></pre></li>
+</ul>
+<p><strong>九.定制类</strong></p>
+<ul>
+<li><p><strong>str</strong> 实现该方法可以打印类名</p>
+</li>
+<li><p><strong>iter</strong> 用于类迭代</p>
+</li>
+<li><p><strong>getattr</strong> 动态返回属性</p>
+</li>
+<li><p><strong>call</strong> 直接调用 实例名(),打印类名</p>
+</li>
+</ul>
+<p><strong>十.使用枚举类</strong></p>
+<ul>
+<li>unique 防止元素重复</li>
+</ul>
+<pre><code>from enum import Enum,unique
+
+@unique  
+class Weekday(Enum):
+        Sun =0
+        Mon =1
+</code></pre><p><strong>十一.使用元素</strong></p>
+<ul>
+<li><p>type 动态创建类</p>
+<pre><code>正常使用：
+class Student(object):
+        def name(self,name=&apos;ZTZ&apos;):
+            print(&apos;my name is %s&apos;% name)
+s = Student()
+print(type(s))  
+
+动态创建：
+def fn(self,name=&apos;world&apos;):
+    print(&apos;Hello,%s&apos;%name)
+Student = type(&apos;Studnet&apos;,(object,),dect(hello = fn))
+</code></pre></li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/30/跟我一起学-Python-三/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="阙弋钦">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="QYQ">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/10/30/跟我一起学-Python-三/" itemprop="url">跟我一起学 Python (三)</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-30T16:35:13+08:00">
+                2017-10-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><strong>概要：</strong></p>
+<blockquote>
+<p>函数式编程</p>
+<p>模块 </p>
+</blockquote>
+<p><strong>一.高阶函数</strong></p>
+<ul>
+<li><p>map</p>
+<pre><code>list(map((str,[1,2,3,4]))
+
+[&apos;1&apos;,&apos;2&apos;,&apos;3&apos;,&apos;4&apos;]
+</code></pre></li>
+</ul>
+<p>在 map 中第一个参数是方法,第二个是数值,他是一个惰性序列，所以用 list() 计算出来。</p>
+<ul>
+<li>reduce</li>
+</ul>
+<pre><code> reduce(add,[1,2,3,4])
+
+结果是 10 
+</code></pre><p>用法可能跟 map 差不多需要根据实际情况，需要注意就是 reduce 其函数必须接收<strong>两个参数</strong>。</p>
+<ul>
+<li>filter </li>
+</ul>
+<p>filter() 函数用于过滤序列</p>
+<p>如：</p>
+<pre><code>def is_odd(n):
+    return n % 2 ==1
+list(filter(is_odd,[1,2,3,4,5,6,7,8,9,10]))
+</code></pre><ul>
+<li>sorted  (排列算法)</li>
+</ul>
+<p>对 list 进行排序</p>
+<p>如：</p>
+<pre><code>sorted([37,4,-1,3,-82])
+</code></pre><p>此外,可以使用接收一个参数实现自定义排序。</p>
+<pre><code>sorted([1,2,3,6-2,0,2],key = abs)
+</code></pre><p>反转使用 <code>reverse = True</code> 作为第三个参数。</p>
+<p><strong>二.返回函数</strong></p>
+<p>如：</p>
+<pre><code>def lazy_sum(*agrs):
+    def sum():
+        ax =0
+        for n in args:  # 这里是传入的参数
+            ax = ax + n
+        return ax
+    return sum   #这里返回的是一个方法
+调用： f = lazy_sum(1,2,4)
+      f()  结果是 7  
+</code></pre><p><strong>这里要注意的是每次调用返回的函数指向地址都不同！</strong></p>
+<ol>
+<li>闭包</li>
+</ol>
+<p>方法中传入的 args ，当函数返回函数后,局部变量被新的函数引用,称为闭包。</p>
+<p><strong>三.匿名函数</strong></p>
+<p>如 ：</p>
+<pre><code>lambda x: x *x  没有函数名
+</code></pre><p>实际上是：</p>
+<pre><code>def f(x):
+    return x * x
+</code></pre><p><strong>四.装饰器（Decorator）</strong></p>
+<p>不需要动原函数,在运行期间动态增加功能的方式。</p>
+<pre><code>def now():
+    print(&apos;2017-10-30&apos;)
+</code></pre><p>为以上代码每次运行打印出其方法名。</p>
+<p><strong>定义它的装饰器：</strong></p>
+<ol>
+<li>无参数装饰器</li>
+</ol>
+<pre><code>def log (func):  # 装饰 now 方法
+    def wrapper(*args ,**kw):   # 接收 now 函数所携带的参数，现在 now() 方法没有参数
+        print(&apos;call %s&apos; % func.__name__)
+    return func(*args,**kw)     #将其返回,now()不可调用
+</code></pre><p>使用：</p>
+<pre><code>@log
+def now():
+    print(&apos;2017-10-30&apos;)
+</code></pre><p>结果</p>
+<pre><code>now()
+   call now():
+   2017-10-30
+</code></pre><ol>
+<li>带参数装饰器</li>
+</ol>
+<pre><code>def log(text):
+    def decotator(func):
+        def wrapper(*args,**kw):    
+            print(&apos;%s %s&apos; % (text,func.__name__))
+        return func(*args,**kw)
+    return wrapper
+  return decotator
+
+运用：
+
+log(&apos;test&apos;)  #这是参数
+def now()
+</code></pre><p>此时调用 now() 获取函数名,已经变成了 wrapper 了，需要 functools 模块</p>
+<p>如：</p>
+<pre><code>import functools
+def log（text）：
+    def decotator(func):
+        @functools.wraps(func) #此时加入这段代码,让函数指向now()函数
+        def wrapper(*args **kw)
+            print(&apos;%s %s&apos; % (text ,func.__name__))
+</code></pre><p><strong>五.偏函数</strong></p>
+<p>作用：把一个函数的某些参数给固定，返回新的函数，调用这个新函数会更简单。</p>
+<p>如：</p>
+<pre><code>import functools
+int16 = functools.partial(int,base =16) #生成新的函数
+print(int16(234))
+</code></pre><p><strong>六.模块</strong></p>
+<p><strong>一个.py文件为一个模块</strong></p>
+<p>导入模块：<code>import sys</code></p>
+<p>运行测试：</p>
+<pre><code>if __name__==&apos;__main__&apos;
+test()    
+</code></pre><p><strong>安装第三方模块：</strong></p>
+<p>安装了 pip 和 add python.exx to path 的情况下：<br>在 windows 命令提示符窗口下 ：</p>
+<p>如：</p>
+<pre><code>pip install Pillow
+</code></pre><p>模块会在 pypi.python.org 官网上边有注册，知道库名可以直接查找。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/21/跟我一起学-Python-二/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="阙弋钦">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="QYQ">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/09/21/跟我一起学-Python-二/" itemprop="url">跟我一起学 Python (二)</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-21T11:15:52+08:00">
+                2017-09-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><strong>一.函数</strong></p>
+<ul>
+<li><p>定义一个函数要使用 def 语句。</p>
+<p>如：</p>
+<p>   def add(x,y):</p>
+<pre><code>return x + y
+</code></pre></li>
+</ul>
+<p><strong>二. 函数的参数：</strong></p>
+<hr>
+<ul>
+<li>可变参数：可以接收 list ,tuple</li>
+</ul>
+<p>如：</p>
+<pre><code>def varible(*numbers):
+    sum =0
+    for n in numbers:
+        sum = sum + n* n
+    return sum
+</code></pre><ul>
+<li>关键参数 ：字段前面加 <code>**</code> ,**kw 参数中可以用 dict 当参数传入</li>
+</ul>
+<p>如：</p>
+<pre><code>def person(name, age,**kw):
+    print(&apos;name:&apos;,name,&apos;age:&apos;,age,&apos;other:&apos;,kw)
+</code></pre><ul>
+<li>命名关键字参数，如果函数定义中已经有了一个可变参数,后面跟着的命名关键参数就不再需要 * 。</li>
+</ul>
+<p>如：</p>
+<pre><code>def person（name,age,*numbers,city,job）
+</code></pre><p>反之：</p>
+<pre><code>def person（name,age,*,city.job）
+</code></pre><p><strong>三. 递归函数</strong></p>
+<pre><code>def fact（num,m）:
+if num ==1:
+    return m
+return fact(num -1,num*m)
+</code></pre><p><strong>四. 高级特性</strong></p>
+<ul>
+<li>切片 <code>slice</code></li>
+</ul>
+<p>如：</p>
+<pre><code>L =list(range(100))
+print(L[:10]) # 获取前十个数
+print（L[-10:]）#获取后十个数
+print（L[:10:2]）# 每两个数去取一个值
+print(L[:]) #相当于复制
+</code></pre><p>当然 除了 list 之外，tuple，str 也可以使用 slice。</p>
+<ul>
+<li>迭代,可以使用 <code>isinstance()</code> 判断是否可以进行迭代。</li>
+</ul>
+<p>如：</p>
+<pre><code>from collections import Iterable
+isinstance（&apos;abc&apos;,Iterable）
+</code></pre><p>迭代 dict 可以同时获取 k , v。</p>
+<p>迭代 list 可以使用 enumerate(list) 进行索引排列。</p>
+<ul>
+<li>列表生成式</li>
+</ul>
+<p>如：</p>
+<pre><code>[x * x for x in range(1,11)]
+</code></pre><ul>
+<li>生成器（generator）</li>
+</ul>
+<p>如：</p>
+<pre><code>（x * x for x in range(1,11)）
+</code></pre><p>主要区别于别表生成式一个 (),生成器保存的是算法。可以使用 <code>next()</code>  函数获取。</p>
+<p><strong>备注</strong>：斐波那契数列。</p>
+<ul>
+<li><p>迭代器</p>
+<p>1.可以直接作用于 for 循环的对象统称为可迭代对象： <code>Iterable</code></p>
+<p>2.可以使用 <code>isinstance()</code> 判断一个对象是否是 Iterable 对象。</p>
+</li>
+</ul>
+<p>如：</p>
+<pre><code>isinstance（[].Iterable）
+</code></pre><p>  3.Iterator 不但可以作用于 for 循环,还恶意被 <code>next()</code> 函数调用并不断返回下一个值的对象称为迭代器。</p>
+<p>如：</p>
+<pre><code>isinstance([],Iterator)
+</code></pre><p>注意可以使用 <code>iter()</code> 函数转换成 Iterable </p>
+<p>如：</p>
+<pre><code>isinstance（iter（[]）,Iterator）
+</code></pre><hr>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/20/跟我一起学-Python-一/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="阙弋钦">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="QYQ">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/09/20/跟我一起学-Python-一/" itemprop="url">跟我一起学 Python (一)</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-20T22:17:28+08:00">
+                2017-09-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>为什么要学习 Python ?</p>
+</blockquote>
+<p>Python 的应用范围非常广泛,自动化运维,web编程,人工智能,科学计算,图形界面开发等都可以使用 Python。<br>首选是网络应用,包括网站、后台服务等等；著名的网站 Youtube,豆瓣网就是用 Python 开发的。</p>
+<hr>
+<p>话不多说,下面我们进入 Python 学习。</p>
+<p><strong>Python语言优缺点：</strong></p>
+<ul>
+<li><p>第一运行速度相比 C++ ,Java 会慢一些,因为 Python 是解析型语言,代码在执行时会一行一行地翻译成CPU能理解的机器码.</p>
+</li>
+<li><p>第二个缺点就是代码不能加密。如果要发布你的Python程序，实际上就是发布源代码。</p>
+</li>
+</ul>
+<p><strong>下载安装 Python:</strong></p>
+<pre><code>https://www.python.org/
+</code></pre><p>安装好之后,在命令行运行 Python 启动 CPython 解释器。</p>
+<p>也可以使用 Sublime Text 文本剪辑器：</p>
+<pre><code>http://www.sublimetext.com/
+</code></pre><p><strong>输入输出：</strong></p>
+<pre><code>input()
+
+print()
+</code></pre><p><strong>注解： # 号</strong></p>
+<p>Python 程序是大小写敏感的，如果写错了大小写，程序会报错。<br>Python 使用缩进来组织代码块，请务必遵守约定俗成的习惯，坚持使用 4 个空格的缩进。</p>
+<p><strong>整数类型：</strong></p>
+<ul>
+<li><p>整数</p>
+</li>
+<li><p>浮点数</p>
+</li>
+<li><p>字符串</p>
+</li>
+</ul>
+<p>转义字符 \ 可以转义很多字符，比如 \n 表示换行，\t 表示制表符，字符 \ 本身也要转义，所以 \ 表示的字符就是 \。</p>
+<p><strong>布尔值 ：</strong></p>
+<ul>
+<li><p>and ： 全部为 True 才是 True。</p>
+</li>
+<li><p>or ： 只要一个为 True 为 True。</p>
+</li>
+<li><p>not ： 非 。</p>
+</li>
+</ul>
+<p><strong>空值：</strong></p>
+<p>None 表示 None 不能理解为 0，因为 0 是有意义的，而 None 是一个特殊的空值。</p>
+<p><strong>变量:</strong><br>变量名必须是大小写英文、数字和_的组合，且不能用数字开头：<br>  如：</p>
+<pre><code>aa_01
+</code></pre><p><strong>常量：</strong> 全为大写字母</p>
+<p><strong>除法： <code>/</code> 浮点数结果 整数除法：</strong> <code>//</code> </p>
+<p><strong>字符串和编码：</strong></p>
+<ul>
+<li><p>获取字符的整数表示： <code>ord()</code></p>
+</li>
+<li><p>把编码转换为对应的字符: <code>chr()</code></p>
+</li>
+</ul>
+<p>Unicode 表示的 str 通过 <code>encode()</code>方法可以编码为指定的 bytes,<br>要把 bytes 变为 str，就需要用 <code>decode()</code> 方法。<br>要计算 str 包含多少个字符，用 <code>len()</code> 函数：</p>
+<p><strong>格式化：</strong></p>
+<ul>
+<li><p>整数 %d</p>
+</li>
+<li><p>字符 %s</p>
+</li>
+<li><p>浮点数 %f</p>
+</li>
+<li><p>十六进制 %x</p>
+</li>
+</ul>
+<p><strong>List[] 和 Tuple()</strong></p>
+<ul>
+<li>List 是有序集合,可以随时添加，删除其中的元素。</li>
+</ul>
+<p>追加、插入、删除函数：</p>
+<pre><code>append()
+insert()
+pop()
+</code></pre><ul>
+<li><p>Tuple 一旦初始化就无法修改,所以安全性较高。</p>
+</li>
+<li><p>TUple 缺陷就是初始化时必须要确定下来。</p>
+</li>
+</ul>
+<p><strong>条件判断语句</strong></p>
+<pre><code>if else elif
+</code></pre><p>if &lt;条件判断1&gt;:<br>执行1</p>
+<p>elif &lt;条件判断2&gt;:<br>执行2</p>
+<p>else:<br> 执行3</p>
+<p><strong>循环语句语句</strong></p>
+<ul>
+<li><p>一种是for…in循环</p>
+<p>   for x in range(100):</p>
+<pre><code>print(x)     #  输出  1 -100整数
+</code></pre></li>
+<li><p>while 只要条件满足，就不断循环，条件不满足时退出循环。</p>
+</li>
+</ul>
+<p><strong>使用 Dict{} 和 Set()</strong></p>
+<p>1.dict 字典,以键值对的方式 (key-value),Key 不重复。</p>
+<ul>
+<li><p>优点 ： 具有极快的查找速度。</p>
+</li>
+<li><p>in 检查 Key 是否存在字典里。</p>
+</li>
+<li><p>get(Key) 根据 Key 获取值。</p>
+</li>
+<li><p>pop(Key) 删除 Key。</p>
+</li>
+</ul>
+<p><strong>重点：list dict 性能比较：</strong></p>
+<ul>
+<li><p>dict 查找和插入速度极快，不会随着 Key 的增加而变慢，dict占用内存大。</p>
+</li>
+<li><p>list 查找和插入的时间随着元素的增加而增加。</p>
+</li>
+</ul>
+<p>set:</p>
+<ol>
+<li>set是无序的集合。set 和 dict 类似,也是一组 Key的集合，set 中 Key 不重复。</li>
+</ol>
+<ul>
+<li><p>创建 set 需要提供 list 作为集合。</p>
+</li>
+<li><p>添加 set 元素使用 <code>add (Key)</code> 删除元素使用 <code>remove(Key)</code></p>
+</li>
+</ul>
+<p>注意： 可以使用 set 去除重复元素、合并相同元素，交集 &amp; ,并集 |</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/04/利用 Hexo + Node.js + Github 搭建自己的博客/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -313,8 +1424,10 @@
 <p>☆ 本文字数：2082</p>
 </blockquote>
 <p>Windows 下具体步骤：</p>
-<p><strong><a href="https://nodejs.org/en/download/" target="_blank" rel="external">安装 Node.js</a></strong></p>
-<p><strong><a href="https://git-scm.com/downloads" target="_blank" rel="external">安装 Git</a></strong></p>
+<p><strong><a href="https://nodejs.org/en/download/" target="_blank" rel="external">安装 Node.js</a>:</strong></p>
+<p><code>https://nodejs.org/en/download/</code></p>
+<p><strong><a href="https://git-scm.com/downloads" target="_blank" rel="external">安装 Git</a>:</strong></p>
+<p><code>https://git-scm.com/downloads</code></p>
 <p><strong>安装 Hexo:</strong></p>
 <p> 启动 Git 界面如下：</p>
 <p>  <img src="https://i.imgur.com/GD8k0Pf.png" alt=""></p>
@@ -472,7 +1585,7 @@
             
               <a href="/archives">
             
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -518,7 +1631,7 @@
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2017</span>
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
